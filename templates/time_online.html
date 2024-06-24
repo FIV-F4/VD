@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Время онлайн</title>
+    <script>
+        function updateTime() {
+            fetch('/current_time')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('time').innerText = data;
+                });
+        }
+
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
+</head>
+<body>
+    <h1>Current Date and Time: <span id="time"></span></h1>
+    <a href="/">Назад на главную</a>
+</body>
+</html>
